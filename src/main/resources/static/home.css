@@ -1,0 +1,24 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*{
+    font-weight: bold !important;
+}
+.allContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.chartColor{
+    background-color:#E2E2B6;
+}
+body{
+    background-color: #021526;
+    font-family: 'Roboto', sans-serif;
+}
+.light{
+    background-color: #6EACDA;
+    align-content: center;
+}
+.indented-paragraph{
+    text-indent: 50px;
+}

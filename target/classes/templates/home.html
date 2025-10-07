@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Monty Hall</title>
+        <!-- Icon -->
+        <link rel="icon" href="/ico.png" type="image/x-icon">
+        <!-- View Port -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Chart js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Custom Css -->
+        <link href="/home.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class ="container mt-5 mb-5">
+            <div class="col-sm-12 mb-2" style="color:#6EACDA;background-color:#03346E;padding:20px;">
+
+                    <h1 style="text-align:center">🎲 The Monty Hall Problem</h1>
+                        <p>The Monty Hall problem is a famous probability puzzle based on a game show scenario.</p>
+                        <p class="indented-paragraph">You are presented with three doors:</p>
+                        <p class="indented-paragraph">Behind one door is a car (the prize).</p>
+                        <p class="indented-paragraph">Behind the other two are goats.</p>
+                        <p class="indented-paragraph">Here's how it works:</p>
+                        <p class="indented-paragraph">You choose one door.</p>
+                        <p class="indented-paragraph">The host, Monty Hall, who knows what's behind each door, opens one of the other two doors, revealing a goat.</p>
+                        <p class="indented-paragraph">Monty then asks:</p>
+                        <p class="indented-paragraph">"Do you want to stick with your original choice, or switch to the other unopened door?"</p>
+
+                    <h6>🧠 The Twist:</h6>
+                        <p class="indented-paragraph">Sticking with your original choice gives you a 1 in 3 chance of winning.</p>
+                        <p class="indented-paragraph">Switching gives you a 2 in 3 chance.</p>
+                    <h6>✅ The Best Strategy:</h6>
+                        <p class="indented-paragraph">Always switch!</p>
+                        <p class="indented-paragraph">Switching doubles your chances of winning the car.</p>
+                </div>
+            <div class =" col-sm-12 allContainer">
+                    <div id="chart-container"
+                         th:data-chart="${data}">
+                    </div>
+                    <form class="col-sm-6" method="get" action="/api/monty">
+                        <canvas class="chartColor" id="myChart" ></canvas>
+                        <button type="submit" class="btn btn-warning" style="width:100%;border-radius: 0!important">Re-Calculate</button>
+                    </form>
+                    <div class="col-6 light">
+                        <h6 class="indented-paragraph">Win rate when player do not switch its initial choice <span style="color:#E2E2B6" th:text="|${data.replace('[','').split(',')[0]}%|"></span></h6>
+                        <h6 class="indented-paragraph">Win rate when player do switch its initial choice <span style="color:#E2E2B6" th:text="|${data.replace(']','').split(',')[1]}%|"> </span></h6>
+                        <h6 class="indented-paragraph">Every Calculation of Monty Hall is for <span style="color:#E2E2B6">10000</span> iteration</h6>
+                    </div>
+                </div>
+        </div>
+    </body>
+    <script src="/chart.js"></script>
+</html>
